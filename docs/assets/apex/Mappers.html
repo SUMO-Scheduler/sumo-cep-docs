@@ -1,0 +1,30 @@
+<h2>Mapper is an object-to-object service, which allows you to solve issues with mapping of properties in one object of one type to another object of another type.</h2>
+<p style="max-width: 650px">
+    <strong>INFO:</strong> This is a class group page. You can provide a class group page for classes grouped togehter
+    using the <code class="inlineCode">@group</code> tag with the <code class="inlineCode">@group-content</code> tag.
+    See the
+    <a
+        href="https://github.com/no-stack-dub-sack/apexdox-vs-code#documentation-tags"
+        rel="noopener noreferrer"
+        target="_blank"
+        >tags documentation</a
+    >
+    for more info.
+</p>
+<img style="display: inline-block; margin-right: 10px;" src="./assets/mappers.png" alt="mappers icon" />
+<h4 style="max-width: 900px; display: inline-block; color: grey;">
+    <p>Mapper implementation rules:</p>
+    <p>- mapper has two types of methods: void (mutable) and non-void (non-mutable)</p>
+    <p>- mapper name and mapper methods map* part should be the same.</p>
+    <pre><code>class SomethingMapper {<br/>
+    /* good non-void method */<br/>
+    static Anything mapSomethingToAnything(Something source) {}<br/>
+    /* good void method */<br/>
+    static void mapSomethingToAnything(Something source, Anything target) {}<br/>
+    /* good method */<br/>
+    static Anything mapSomethingSObjectToAnything(Something__c source) {}<br/>
+    /* bad method because it belongs to AnythingMapper */<br/>
+    static Something mapAnythingToSomething(Anything source, Something target) {}<br/>
+}
+    </code></pre>
+</h4>
